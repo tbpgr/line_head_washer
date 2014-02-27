@@ -1,5 +1,8 @@
 # LineHeadWasher
 
+[![Build Status](https://travis-ci.org/tbpgr/line_head_washer.png?branch=master)](https://travis-ci.org/tbpgr/line_head_washer)
+[![Coverage Status](https://coveralls.io/repos/tbpgr/line_head_washer/badge.png)](https://coveralls.io/r/tbpgr/line_head_washer)
+
 LineHeadWasher remove start of target pattern charactors.
 
 ## Installation
