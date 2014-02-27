@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+require 'line_head_washer_core'
+require 'line_head_washer/version'
+require 'thor'
+
+module LineHeadWasher
+  # = LineHeadWasher CLI
+  class CLI < Thor
+    class_option :help, type: :boolean, aliases: '-h', desc: 'help message.'
+    class_option :version, type: :boolean, desc: 'version'
+
+    desc 'execute', 'TODO: write your desc'
+    def execute
+      LineHeadWasher::Core.new.execute
+    end
+
+    desc 'init', 'generate Lineheadwasherfile'
+    def init
+      LineHeadWasher::Core.new.init
+    end
+
+    desc 'version', 'version'
+    def version
+      p LineHeadWasher::VERSION
+    end
+  end
+end
+
+LineHeadWasher::CLI.start(ARGV)
