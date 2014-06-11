@@ -34,8 +34,8 @@ remove_regexp "[ |	]"
 
     # remove line head specific charactors
     def execute
-      dsl = get_dsl
-      input, remove_regexp, output = get_in_out_removes(dsl)
+      settings = read_settings
+      input, remove_regexp, output = get_in_out_removes(settings)
       create_output_dir(output)
       Dir.glob(input).each do |file|
         input_src = get_input(file)
@@ -45,15 +45,15 @@ remove_regexp "[ |	]"
     end
 
     private
-    def get_dsl
+    def read_settings
       src = read_dsl
-      dsl = LineHeadWasher::Dsl.new
-      dsl.instance_eval src
-      dsl
+      settings = LineHeadWasher::Dsl.new
+      settings.instance_eval src
+      settings
     end
 
-    def get_in_out_removes(dsl)
-      [dsl.line_head_washer.input, dsl.line_head_washer.remove_regexp, dsl.line_head_washer.output]
+    def get_in_out_removes(settings)
+      [settings.line_head_washer.input, settings.line_head_washer.remove_regexp, settings.line_head_washer.output]
     end
 
     def create_output_dir(output)
