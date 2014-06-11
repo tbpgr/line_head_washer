@@ -60,14 +60,14 @@ hege
           line_head_washer_core.execute
 
           # -- then --
-          c[:output_file_names].each_with_index { |v, i|expect(File.read(v)).to eq(c[:expected_contents][i]) }
+          c[:output_file_names].each_with_index { |v, i|expect(File.read(v).encode('UTF-16BE', 'UTF-8', invalid: :replace, undef: :replace, replace: '?').encode('UTF-8')).to eq(c[:expected_contents][i]) }
         ensure
           case_after c
         end
       end
 
       def case_before(c)
-        Dir.mkdir(TMP_WASHER) unless File.exists?(TMP_WASHER)
+        Dir.mkdir(TMP_WASHER) unless File.exist?(TMP_WASHER)
         Dir.chdir(TMP_WASHER)
         Dir.mkdir('input')
         File.open(LineHeadWasher::Core::WASHER_FILE, 'w:UTF-8') { |f|f.print c[:washerfile] }
@@ -78,7 +78,7 @@ hege
 
       def case_after(c)
         Dir.chdir('../')
-        return unless File.exists? TMP_WASHER
+        return unless File.exist? TMP_WASHER
         FileUtils.rm_rf("./#{TMP_WASHER}")
       end
     end

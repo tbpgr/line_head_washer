@@ -39,7 +39,7 @@ remove_regexp "[ |	]"
       create_output_dir(output)
       Dir.glob(input).each do |file|
         input_src = get_input(file)
-        replaced = remove_head(input_src, remove_regexp)
+        replaced = remove_head(input_src.encode('UTF-16BE', 'UTF-8', invalid: :replace, undef: :replace, replace: '?').encode('UTF-8'), remove_regexp)
         output_file(file, replaced, output)
       end
     end
@@ -57,7 +57,7 @@ remove_regexp "[ |	]"
     end
 
     def create_output_dir(output)
-      Dir.mkdir(output) unless Dir.exists? output
+      Dir.mkdir(output) unless Dir.exist? output
     end
 
     def get_input(file)
