@@ -9,14 +9,14 @@ module LineHeadWasher
     # String Define
     [:input, :output, :remove_regexp].each do |f|
       define_method f do |value|
-        eval "@line_head_washer.#{f} = '#{value}'", binding
+        @line_head_washer.send("#{f}=", value)
       end
     end
 
     # Array/Hash/Boolean Define
     [].each do |f|
       define_method f do |value|
-        eval "@line_head_washer.#{f} = #{value}", binding
+        @line_head_washer.send("#{f}=", value)
       end
     end
 
