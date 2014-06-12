@@ -17,6 +17,5 @@ module LineHeadWasher
     # remove_regexp
     attr_accessor :remove_regexp
     validates :remove_regexp, presence: true
-
   end
 end
