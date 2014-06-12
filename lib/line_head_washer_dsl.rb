@@ -2,6 +2,7 @@
 require 'line_head_washer_dsl_model'
 
 module LineHeadWasher
+  # Dsl
   class Dsl
     attr_accessor :line_head_washer
 

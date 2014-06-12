@@ -2,6 +2,7 @@
 require 'active_model'
 
 module LineHeadWasher
+  # DslModel
   class DslModel
     include ActiveModel::Model
 
