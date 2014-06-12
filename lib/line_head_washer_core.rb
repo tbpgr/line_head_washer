@@ -45,6 +45,7 @@ remove_regexp "[ |	]"
     end
 
     private
+
     def read_settings
       src = read_dsl
       settings = LineHeadWasher::Dsl.new
