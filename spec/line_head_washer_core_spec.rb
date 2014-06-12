@@ -80,7 +80,7 @@ hege
         end
       end
 
-      def case_after(c)
+      def case_after(c) # rubocop:disable UnusedMethodArgument
         Dir.chdir('../')
         return unless File.exist? TMP_WASHER
         FileUtils.rm_rf("./#{TMP_WASHER}")
