@@ -12,12 +12,16 @@ input "./input/*.txt"
 output "output"
 remove_regexp "[ |\t|　]*"
     EOS
+
+# rubocop:disable Tab
     CONTENTS1 = <<-EOS
 hoge
   hige
 　　huge
 		hege
     EOS
+# rubocop:enable Tab
+
     CONTENTS2 = <<-EOS
 hoge
 hige
