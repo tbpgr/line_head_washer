@@ -48,8 +48,8 @@ hege
         input_contents: [CONTENTS1, CONTENTS2],
         input_file_names: ['./input/test1.txt', './input/test2.txt'],
         output_file_names: ['./output/test1.txt', './output/test2.txt'],
-        expected_contents: [EXPECTED1, EXPECTED2],
-      },
+        expected_contents: [EXPECTED1, EXPECTED2]
+      }
     ]
 
     cases.each do |c|
