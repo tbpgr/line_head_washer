@@ -70,7 +70,7 @@ remove_regexp "[ |	]"
     end
 
     def remove_head(input_src, remove_regexp)
-      input_src.gsub /^#{remove_regexp}/, ''
+      input_src.gsub(/^#{remove_regexp}/, '')
     end
 
     def read_dsl
